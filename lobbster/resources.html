@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z001KJTPQW"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z001KJTPQW");
+    </script>
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8" />
+    <title>Lobbster: The Best NYS Lobbying Reporting Tool!</title>
+    <meta
+      name="description"
+      content="We can help you identify if: You have been lobbying, if you should file a report due to lobbying, and different ways you might have been lobbying!"
+    />
+    <meta
+      name="keywords"
+      content="Lobbying, Lobbying Expenses, Social Media Lobbying, New York State Lobbying, NYS Lobbying, Lobbying Report, Lobbying Activities"
+    />
+    <meta
+      name="author"
+      content="This website was made in collaborations with Albany Law and SUNY Albany. The students who worked on this were Jocelyn Chan, Jesse Conklin, Matthew Galetta, and Gyuhaeng 'Alex' Lee!"
+    />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="images/lobbster.ico" />
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body onload="checkDisclaimer()">
+    <!-- Primary Page Layout -->
+
+    <nav class="nav">
+      <img
+        class="logo"
+        src="images/lobbsterLogo.png"
+        alt="Lobbster: The website for learning about NYS lobbying!"
+      />
+      <ul class="nav__links">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="modules.html">Modules</a></li>
+        <li><a class="nav__link" href="podcasts.html">Podcasts</a></li>
+        <li><a class="nav__link active" href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav_mobile">
+      <img
+        class="logo"
+        src="images/lobbsterLogo.png"
+        alt="Lobbster: The website for learning about NYS lobbying!"
+      />
+      <img
+        onclick="nav_burger(), shiftFooterBtn()"
+        id="nav_burger"
+        src="images/burger.png"
+        alt="burger"
+      />
+      <div id="nav_burger_hide" style="display: none">
+        <a href="index.html">Home</a>
+
+        <a href="modules.html">Modules</a>
+
+        <a href="podcasts.html">Podcasts</a>
+
+        <a class="active" href="resources.html">Resources</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <h1 class="section__heading">Guidance from Professionals</h1>
+        <p class="section__paragraph">
+          The following information comes from various lobbyists in Albany and
+          governmental affairs lawyers who lobby on behalf of clients. This
+          information could be useful for future lobbyists and people trying to
+          go into lobbying.
+        </p>
+      </section>
+      <section class="section">
+        <h2 class="section__subheading">
+          Compromise is part of the job, as is managing client expectations.
+        </h2>
+        <div class="section__content">
+          <p class="section__item_content">
+            A lobbyist must be able to compromise and be aware that the
+            legislators might not give everything they ask for in a piece of
+            legislation. This skill in lobbying involves client expectation
+            management (if a lobbyist is lobbying on behalf of a specific
+            client). The lobbyist must make the client aware that they may not
+            receive everything they expected in a particular piece of
+            legislation since compromises between lobbyists and different
+            political factions alter legislation. Additionally, amendments to
+            bills are made by legislators which can change what the client of
+            the lobbyist wanted.
+          </p>
+          <h2 class="section__subheading">
+            Personal and professional integrity and relationship building are
+            also critical to effective lobbying.
+          </h2>
+          <p class="section__item_content">
+            Credibility and relationship building are critical in lobbying (this
+            relates to the ethical obligations that lobbyists must follow).
+            Lobbyists should make lawmakers aware of both the positive and
+            negative sides to their issue or piece of legislation they are
+            supporting (this is part of building a relationship with
+            legislators). They need to make lawmakers aware of the negative side
+            of their issue because the lawmaker has to weigh those sides when
+            considering the right approach regarding any issue. Furthermore, if
+            a lobbyist is not forthcoming with legislators and does not share
+            the negative parts to their proposed law, the lobbyist will lose
+            credibility with legislators on future issues.
+          </p>
+          <h2 class="section__subheading">Always look to build coalitions.</h2>
+          <p class="section__item_content">
+            Coalition building is also important for lobbyists since it allows
+            separate associations to combine their efforts in passing
+            legislation that relates to their respective organizations.
+            Legislators will be more willing to consider legislation if a wide
+            variety of organizations back the legislation. Coalition building
+            also allows different organizations to collaborate on issues and
+            address these issues in a holistic manner.
+          </p>
+          <p class="section__item_content">
+            For more information, links are available for important lobbying
+            laws and regulations that lobbyists must follow in New York State
+            and New York City. This is a link to the New York State Commission
+            on Ethics and Lobbying in Government:
+            <a href="https://ethics.ny.gov">ethics.ny.gov</a>
+          </p>
+          <p class="section__item_content">
+            This is a link to the Office of the City Clerk for the City of New
+            York for lobbying laws in New York City:
+            <a href="https://www.cityclerk.nyc.gov/content/nyc-lobbying-law"
+              >cityclerk.nyc.gov</a
+            >
+          </p>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section__content">
+          <h3 class="section__subheading">Additional Resources</h3>
+          <p class="section__item_content">
+            Lawyers Alliance for New York:
+            <a
+              href="https://lawyersalliance.org/userFiles/uploads/legal_alerts/Nonprofits_and_Lobbying_FAQ.pdf"
+              >FAQ's for Lobbyings</a
+            >
+          </p>
+          <p class="section__item_content">
+            Nonprofit New York:
+            <a href="https://www.nonprofitnewyork.org/act/a-place-at-the-table/"
+              >nonprofitnewyork.org</a
+            >
+            <br />This website allows for those inquiring into lobbying in NY to
+            participate via online forum, in person trainings, and many other
+            ways. Additionally, this website stays current on issues related to
+            legislation within New York. A good overall resource to have on the
+            website.
+          </p>
+          <p class="section__item_content">
+            The Office of the City Clerk for the City of New York for lobbying
+            laws in New York City:
+
+            <a href="https://www.cityclerk.nyc.gov/content/nyc-lobbying-law"
+              >nonprofitnewyork.org</a
+            ><br />NYC lobbying laws, regulations, restrictions. Also contains
+            useful links for lobbying forms, announcements, and training.
+          </p>
+          <p class="section__item_content">
+            New York State Commission on Ethics and Lobbying in Government:
+            <a href="https://ethics.ny.gov/">ethics.ny.gov</a><br />This site
+            has the most information concerning the latest legislation change
+            (JCOPE à COLEIG)
+          </p>
+          <p class="section__item_content">
+            Alliance for Justice (New York):
+            <a
+              href="https://afj.org/wp-content/uploads/2022/09/Practical-Guidance-NY-Lobbying-09.08.22.1-2.pdf"
+              >afj.org</a
+            ><br />Information on lobbying activities, thresholds, and other
+            restrictions on lobbying related activities conducted. More of a
+            broad overview of lobbying; specific to New York though.
+          </p>
+        </div>
+      </section>
+      <!-- Multi-purpose Modal pop-up -->
+      <div id="modalPopUp" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="hideModal()">&times;</span>
+          <div id="modalText"></div>
+          <button
+            type="button"
+            class="modalClose acceptInstructions altHover"
+            onclick="hideModal()"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <hr class="footer__hr" />
+      <div class="footer__content">
+        <button
+          class="footer__button"
+          onclick="window.location.href= 'aboutus.html';"
+        >
+          About us
+        </button>
+        <button
+          class="footer__button"
+          id="contactBtn"
+          onclick="showContactModal()"
+        >
+          Contact us!
+        </button>
+        <img
+          class="footer__logo"
+          src="images/lobbsterLogo.png"
+          alt="NY Lobbying Express"
+        />
+      </div>
+      <div id="contactModal" class="modal">
+        <div class="modal2">
+          <div class="mdcontact">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <form class="formcontact" id="formcontact" method="post">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" />
+
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" />
+
+              <label for="email">E-mail</label>
+              <input type="text" id="email" name="email" />
+
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="We look forward to hearing from you!"
+              ></textarea>
+
+              <input
+                type="submit"
+                name="submitContact"
+                value="Submit"
+                class="altHover"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/js.js"></script>
+    <script src="js/disclaimer.js"></script>
+    <script src="js/contactModal.js"></script>
+    <script src="js/contact.js"></script>
+    <!-- End Document -->
+  </body>
+</html>

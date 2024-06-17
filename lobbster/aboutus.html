@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z001KJTPQW"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z001KJTPQW");
+    </script>
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8" />
+    <title>Lobbster: The Best NYS Lobbying Reporting Tool!</title>
+    <meta
+      name="description"
+      content="We can help you identify if: You have been lobbying, if you should file a report due to lobbying, and different ways you might have been lobbying!"
+    />
+    <meta
+      name="keywords"
+      content="Lobbying, Lobbying Expenses, Social Media Lobbying, New York State Lobbying, NYS Lobbying, Lobbying Report, Lobbying Activities"
+    />
+    <meta
+      name="author"
+      content="This website was made in collaborations with Albany Law and SUNY Albany. The students who worked on this were Jocelyn Chan, Jesse Conklin, Matthew Galetta, and Gyuhaeng 'Alex' Lee!"
+    />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="images/lobbster.ico" />
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body onload="checkDisclaimer()">
+    <!-- Primary Page Layout -->
+
+    <nav class="nav">
+      <img
+        class="logo"
+        src="images/lobbsterLogo.png"
+        alt="Lobbster: The website for learning about NYS lobbying!"
+      />
+      <ul class="nav__links">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="modules.html">Modules</a></li>
+        <li><a class="nav__link" href="podcasts.html">Podcasts</a></li>
+        <li><a class="nav__link" href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav_mobile">
+      <img
+        class="logo"
+        src="images/lobbsterLogo.png"
+        alt="Lobbster: The website for learning about NYS lobbying!"
+      />
+      <img
+        onclick="nav_burger()"
+        id="nav_burger"
+        src="images/burger.png"
+        alt="burger"
+      />
+      <div id="nav_burger_hide" style="display: none">
+        <a class="active" href="index.html">Home</a>
+
+        <a href="modules.html">Modules</a>
+
+        <a href="podcasts.html">Podcasts</a>
+
+        <a href="resources.html">Resources</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="section">
+        <h2>About Us</h2>
+        <hr class="section__hr" />
+        <p>
+          Welcome to our collaborative platform, a joint endeavor between Albany
+          Law School and SUNY Albany, institutions esteemed for their academic
+          rigor and technological advancements.
+        </p>
+        <p>
+          Under the guidance of Ray Brescia from Albany Law and Christopher
+          Velez from SUNY Albany, this project has been realized through
+          meticulous planning and execution.
+        </p>
+        <p>
+          The content of this website was curated by James Hoose and Lauren Wilt
+          from Albany Law, whose expertise has contributed to the depth and
+          quality of the information presented.
+        </p>
+        <p>
+          The website's design and functionality are the result of the skillful
+          work of Jocelyn Chan, Jesse Conklin, Matthew Galletta, and Gyuhaeng 'Alex'
+          Lee. Updates were made by James Corona, Watson Kim, Isadora Morandi
+          Cabrera, and Oleg Balitskiy from SUNY Albany. Their technical
+          proficiency has ensured a smooth and user-friendly experience.
+        </p>
+        <p>
+          We appreciate your visit to our platform and thank you for your
+          interest in our work.
+        </p>
+      </section>
+      <!-- Multi-purpose Modal pop-up -->
+      <div id="modalPopUp" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="hideModal()">&times;</span>
+          <div id="modalText"></div>
+          <button
+            type="button"
+            class="modalClose acceptInstructions altHover"
+            onclick="hideModal()"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <hr class="footer__hr" />
+      <div class="footer__content">
+        <button
+          class="footer__button"
+          onclick="window.location.href= 'aboutus.html';"
+        >
+          About us
+        </button>
+        <button
+          class="footer__button"
+          id="contactBtn"
+          onclick="showContactModal()"
+        >
+          Contact us!
+        </button>
+        <img
+          class="footer__logo"
+          src="images/lobbsterLogo.png"
+          alt="NY Lobbying Express"
+        />
+      </div>
+      <div id="contactModal" class="modal">
+        <div class="modal2">
+          <div class="mdcontact">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <form class="formcontact" id="formcontact" method="post">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" />
+
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" />
+
+              <label for="email">E-mail</label>
+              <input type="text" id="email" name="email" />
+
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="We look forward to hearing from you!"
+              ></textarea>
+
+              <input
+                type="submit"
+                name="submitContact"
+                value="Submit"
+                class="altHover"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/js.js"></script>
+    <script src="js/disclaimer.js"></script>
+    <script src="js/contactModal.js"></script>
+    <script src="js/contact.js"></script>
+    <!-- End Document -->
+  </body>
+</html>

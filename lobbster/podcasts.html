@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z001KJTPQW"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z001KJTPQW");
+    </script>
+
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8" />
+    <title>Lobbster: Learn About Lobbying</title>
+    <meta
+      name="description"
+      content="Need to know more about Lobbying? We can help! Look at our podcast series on non-profit organizations and how they can lobby."
+    />
+    <meta
+      name="keywords"
+      content="Lobbying, Lobbying on Social Media, Grassroots Lobbying, Direct Lobbying, Lobbying Days, Reporting Lobbying Activities, Podcasts, Lobbying Podcasts"
+    />
+    <meta
+      name="author"
+      content="This website was made in collaborations with Albany Law and SUNY Albany. The students who worked on this were Jocelyn Chan, Jesse Conklin, Matthew Galetta, and Gyuhaeng 'Alex' Lee!"
+    />
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="images/lobbster.ico" />
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body onload="checkDisclaimer()">
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <nav class="nav">
+      <img
+        class="logo"
+        src="images/lobbsterLogo.png"
+        alt="Lobbster: The website for learning about NYS lobbying!"
+      />
+      <ul class="nav__links">
+        <li><a class="nav__link" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="modules.html">Modules</a></li>
+        <li><a class="nav__link active" href="podcasts.html">Podcasts</a></li>
+        <li><a class="nav__link" href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav_mobile">
+      <img
+        class="logo"
+        src="images/lobbsterLogo.png"
+        alt="Lobbster: The website for learning about NYS lobbying!"
+      />
+      <img
+        onclick="nav_burger()"
+        id="nav_burger"
+        src="images/burger.png"
+        alt="burger"
+      />
+      <div id="nav_burger_hide" style="display: none">
+        <a href="index.html">Home</a>
+
+        <a href="modules.html">Modules</a>
+
+        <a class="active" href="podcasts.html">Podcasts</a>
+
+        <a href="resources.html">Resources</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Disclaimer -->
+      <div id="modalDisclaimer" class="modal disclaimer">
+        <div class="modal-content">
+          <h2>Disclaimer</h2>
+          <p>
+            This web tool is in no way affiliated or endorsed by New York State.
+          </p>
+          <p>
+            Albany Law School has made no warranties regarding web-based tool
+            and that this software is being provided on an “as is” basis without
+            any warranties or representations of any kind. Albany Law School
+            disclaims all warranties worldwide with regard to the software,
+            express or implied, including any warranty of software performance,
+            and any implied warranties of fitness for a specific purpose,
+            accuracy, or merchantability of computer program, merchantable
+            quality or noninfringement of third-party rights. Some states or
+            jurisdictions do not allow the exclusion of implied warranties, so
+            the above limitations may not apply to you.
+          </p>
+          <p>
+            This product could include inaccuracies in the information therein
+            or typographical errors. Albany Law School disclaims all liability
+            related to such inaccuracies or errors. Your sole remedy for all
+            claims related to the product shall be the amount paid for the
+            product. The material is not to be interpreted as legal advice; it
+            is for informational purposes only. Users seeking legal advice
+            should consult a licensed attorney in their jurisdiction.
+          </p>
+          <button
+            type="button"
+            class="modalClose altHover"
+            id="acceptDisclaimer"
+            onclick="acceptDisclaimer()"
+          >
+            Accept
+          </button>
+        </div>
+      </div>
+
+      <aside>
+        <nav id="sideNav">
+          <a href="#" class="asideActive" onclick="currentSlide(1)">Lobbying</a>
+          <a href="#" class="asideActive" onclick="currentSlide(2)"
+            >Why Lobby?</a
+          >
+          <a href="#" class="asideActive" onclick="currentSlide(3)"
+            >Can I Lobby?</a
+          >
+          <a href="#" class="asideActive" onclick="currentSlide(4)"
+            >How Can I Lobby?</a
+          >
+          <a href="#" class="asideActive" onclick="currentSlide(5)"
+            >Lobbying Strategies</a
+          >
+        </nav>
+
+        <nav id="sideNavMobile">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+            >×</a
+          >
+          <a href="#" class="asideActive" onclick="currentSlide(1); closeNav();"
+            >Lobbying</a
+          >
+          <a href="#" class="asideActive" onclick="currentSlide(2); closeNav();"
+            >Why Lobby?</a
+          >
+          <a href="#" class="asideActive" onclick="currentSlide(3); closeNav();"
+            >Can I Lobby?</a
+          >
+          <a href="#" class="asideActive" onclick="currentSlide(4); closeNav();"
+            >How Can I Lobby?</a
+          >
+          <a href="#" class="asideActive" onclick="currentSlide(5); closeNav();"
+            >Lobbying Strategies</a
+          >
+        </nav>
+
+        <div id="hamburger">
+          <button class="openbtn" onclick="openNav()">☰</button>
+        </div>
+      </aside>
+
+      <div class="pageTitle">
+        <h2>Podcasts for Non-Profit Organizations on Lobbying</h2>
+      </div>
+
+      <div class="slideshowContainer">
+        <div class="moduleSlide">
+          <div class="numberText">Podcast 1 / 5</div>
+          <h2>Lobbying</h2>
+          <p>
+            Learn vocabulary terms you may need to know when lobbying, and even
+            the basics of what this website can do! You may want to listen to
+            this podcast if you want to learn more about lobbying.
+          </p>
+          <audio controls>
+            <source src="audio/podcast1.m4a" type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
+
+          <h3>Transcript</h3>
+
+          <p>Welcome to Module 1: Helpful Definitions.</p>
+
+          <p>
+            This presentation is part of the Non-Profit’s Guide to Lobbying the
+            New York State Legislature and Executive Branch. In this module, we
+            will define and explain nonprofit organizations, advocacy, direct
+            and grassroots lobbying, and common terminology used when groups
+            want to engage in lobbying in New York State. This is the first of 5
+            modules. This module is for informational purposes only. You should
+            not rely on it as a substitute for, nor does it constitute, legal
+            advice by a competent legal professional.
+          </p>
+
+          <p>
+            This podcast, the other podcasts in this series, and the other
+            materials available on this website are designed to provide general
+            information about the laws and rules that affect organizations and
+            individuals engaged in what is considered lobbying under New York
+            law. What these materials help to explain is what sorts of
+            obligations are imposed on non-profit organizations that engage in
+            lobbying in New York State, with a focus on the reporting
+            requirements that are imposed on those who do engage in such
+            lobbying.
+          </p>
+
+          <p>
+            As we discuss later in this podcast, this information does not
+            relate to the separate and different obligations under federal law
+            that impact a non-profit organization’s ability to engage in
+            lobbying. This material is designed to help you understand what
+            lobbying is under New York law and when the law requires groups
+            engaged in such lobbying to submit reports to New York state
+            officials about such lobbying.
+          </p>
+
+          <p>
+            Please consult an attorney to understand your organization’s
+            specific obligations. This information is not designed to provide
+            tailored, individualized advice or guidance to any specific
+            individual organization.
+          </p>
+
+          <p>Ok, let’s start with some basic definitions.</p>
+
+          <br />
+
+          <h3>NONPROFIT DEFINITION</h3>
+
+          <p>
+            The nonprofit sector is also known as the not-for-profit sector,
+            civil society, the voluntary sector, the third sector, the
+            independent sector, and the nongovernmental sector. This sector is
+            characterized by three features:
+          </p>
+
+          <p>
+            First, nonprofits do not coerce participation. They draw on a large
+            reservoir of goodwill and demand nothing from the community.
+          </p>
+
+          <p>
+            Second, nonprofits operate without distributing profits to
+            stakeholders (this is also known as the non-distribution
+            constraint). While corporations are able to distribute earnings to
+            shareholders, nonprofit organizations cannot make such
+            distributions. Rather, nonprofits must use all of the proceeds and
+            income they receive for the advancement of the organization’s stated
+            charitable purpose or mission.
+          </p>
+
+          <p>
+            This constraint provides reassurance that the nonprofit’s mission
+            takes precedence over the financial benefits that might accrue to
+            anyone involved with the organization. Now, that is not to say that
+            non-profits cannot pay their employees. Of course they can, but the
+            salaries their employees earn must be directed towards serving the
+            public, and not simply to benefit those employees or other
+            individuals with ties to the organization.
+          </p>
+
+          <p>
+            This nondistribution constraint also builds legitimacy and public
+            confidence in a nonprofit. It provides assurance that the funds
+            obtained by the organization are used for a public, NOT private,
+            purpose.
+          </p>
+
+          <p>
+            Lastly, nonprofits exist without simple and clear lines of ownership
+            and accountability. Nonprofit organizations must serve many masters,
+            none of which is ultimately able to exert complete control over the
+            organization. Donors, clients, board members, employees, and local
+            communities all have stakes, claims, and interests in the nonprofit
+            organization, yet none of these parties can be clearly identified as
+            the key ownership group.
+          </p>
+
+          <p>
+            While there should generally be clear lines of communication and
+            decision making authority within an organization, non-profits are
+            accountable to many, including the federal and state governments,
+            that oversee the operation of non-profits; and the community those
+            non-profits serve.
+          </p>
+
+          <p>
+            The largest category of tax-exempt organizations is the §501(c)
+            organization, named for a section of the Internal Revenue Code. Most
+            non-profits fall under sub-section 501(c)(3). If you truly operate a
+            non-profit, this is the section that is most likely applicable to
+            your organization. If you have any questions about what type of
+            organization you are operating or want to operate, consult with an
+            attorney to understand your organization type, or, if you are
+            starting an organization, what type of organization you should form.
+          </p>
+
+          <p>
+            The remainder of these podcasts will be focused on this specific
+            type of nonprofit organization: the 501(c)(3). The IRS explains that
+            section 501(c) grants exemption to 28 different kinds of
+            organizations. But for our purposes, a “charities vs. everything
+            else” distinction is very useful.
+          </p>
+
+          <p>
+            In general, only charities exempt under section 501(c)(3) are
+            eligible to receive additional major tax benefits. At some level,
+            tax exemption for charities is tied to a concept that they are
+            improving general public welfare.
+          </p>
+
+          <p>Now, let’s turn to some other definitions.</p>
+
+          <br />
+
+          <h3>ADVOCACY DEFINITION</h3>
+
+          <p>
+            Advocacy helps your nonprofit achieve its charitable mission. It
+            includes making your voice heard regarding that mission, in ways
+            like: Contacting your local elected officials; inviting these
+            elected officials to meetings, informational sessions, and other
+            events, and; creating a social media or email campaign to promote
+            your mission. Advocacy is more about education and promotion than
+            trying to change the law.
+          </p>
+
+          <p>
+            Through advocacy efforts you can bring light to real community needs
+            and highlight particular social issues that have previously been
+            ignored by policymakers, thus raising awareness, and lower barriers
+            to increase access to important services. For our purposes, it is
+            important to distinguish advocacy from lobbying, which I will turn
+            to next.
+          </p>
+
+          <br />
+
+          <h3>LOBBYING DEFINITION</h3>
+
+          <p>
+            So now you must be wondering, what is lobbying? Lobbying is an
+            attempt to influence government decision making. Here, I will focus
+            on how that term is defined under New York Law. The IRS has a
+            somewhat different definition for lobbying, and you should check
+            with your attorney to assess whether you are engaging in activity
+            that could jeopardize your status as a 501(c)(3) status under
+            federal law if you engage in activity that 501(c)(3) organizations
+            may not engage in.
+          </p>
+
+          <p>
+            You can also consult the companion website to this website, which
+            describes the restrictions surrounding non-profit lobbying under
+            federal law.
+          </p>
+
+          <p>
+            Under New York Law, an organization will be regarded as attempting
+            to influence government decision making if it engages in an activity
+            intended to support, oppose, modify, delay, expedite, or otherwise
+            affect a 1-c(c) Lobbying Activity. These activities include: Passage
+            or defeat of State or Local Legislation or Resolutions, adoption,
+            issuance, rescission or modification of State or Local Executive
+            Orders, or State or Local Rules or Regulations, rate making
+            proceedings by a State Agency or municipality, procurement
+            determinations determined or influenced by: (a) public officials or
+            an entity working in conjunction with a public official; or, (b) an
+            officer, employee, or entity working in conjunction with the unified
+            court system in relation to government contracts, approval,
+            disapproval, implementation or administration of tribal-state
+            compacts, memoranda of understanding, or any other tribal-state
+            agreements, or attempts to influence public officials.
+          </p>
+
+          <p>
+            Once you’ve got that basic understanding of lobbying generally,
+            here’s some additional definitions you will need to know as you work
+            through these podcasts and the rest of the material on this website.
+          </p>
+
+          <br />
+
+          <h3>DIRECT LOBBYING DEFINITION</h3>
+
+          <p>
+            Another important term under New York law is what is known as direct
+            lobbying. Direct lobbying is defined as direct contact with a Public
+            Official to attempt to influence an 1-1(c) lobbying activity or (ii)
+            direct or preliminary contact with a Public Official to enable or
+            facilitate an attempt to influence one of these activities.
+          </p>
+
+          <p>When does direct lobbying occur?</p>
+
+          <p>
+            Direct Lobbying occurs when an Organization has Direct Contact with
+            a Public Official in an attempt to influence any 1-c(c) activity.
+            This includes having Direct or Preliminary contact with a Public
+            Official to facilitate an attempt to influence, such as scheduling a
+            meeting with or making an introduction to a Public official, or
+            having Direct Contact with any member of the Public Officials'
+            staff.
+          </p>
+
+          <p>
+            You can engage in direct lobbying even if the person who you are
+            attempting to influence supports your cause.
+          </p>
+
+          <br />
+
+          <h3>GRASSROOTS LOBBYING DEFINITION</h3>
+
+          <p>
+            Grassroots lobbying: defined as attempts to influence legislation by
+            attempting to affect the opinion of the public with respect to the
+            legislation and encouraging the audience to take action with respect
+            to the legislation.
+          </p>
+
+          <p>
+            When does grassroots lobbying occur? Grassroots lobbying occurs when
+            an organization encourages others to influence legislation by urging
+            those outside the organization to engage in lobbying.
+          </p>
+
+          <p>
+            In order for an activity to count as grassroots lobbying, it must
+            reference or otherwise implicate a 1-c(c) activity. For more
+            information on what a 1-c(c) activity is again, reference the other
+            materials on this website.
+          </p>
+
+          <p>
+            Unlike direct lobbying, grassroots lobbying also requires the
+            activity to include a “call to action,” in which the organization
+            urges members of the public to deliver a message to a Public
+            Official in support of the Organization.
+          </p>
+
+          <p>
+            Just to recap, to engage in grassroots lobbying activity must
+            reference or otherwise implicate an 1-c(c) activity, take a clear
+            position on a government action, and include a call to action. all
+            three elements must be met in order to go from merely educating the
+            public to actively engaging in grassroots lobbying.
+          </p>
+
+          <h3>COMMON JARGON IN NYS LOBBYING</h3>
+
+          <p>
+            Now that we know what lobbying is, and the two main forms of
+            lobbying, it’s important to know jargon used by lobbyists in New
+            York State. Every industry has certain terms they use to refer to
+            critical processes. These terms are known as jargon. In lobbying in
+            New York State, particularly in the capital, common jargon includes:
+          </p>
+
+          <p>
+            Legislative Office Building (LOB): where the senator’s and
+            legislator’s offices are located.
+          </p>
+
+          <p>The second floor: which refers to the governor’s office.</p>
+
+          <p>
+            The well: which is the space in the Legislative Office Building
+            where groups often hold events, typically called lobby days. It is
+            where speakers and participants congregate in such events.
+          </p>
+
+          <p>
+            Concourse: this joins the New York State Capitol building and
+            Legislative Office Building.
+          </p>
+
+          <p>
+            Million-dollar staircase: this is the term used to refer to the
+            grand staircase located off the assembly chamber.
+          </p>
+
+          <h3>CONCLUSION OF MODULE 1</h3>
+
+          <p>
+            We have now reached the conclusion of Module 1: Helpful Definitions.
+            To find out why non-profits should lobby, visit Module 2.
+          </p>
+
+          <br />
+          <br />
+          <br />
+        </div>
+
+        <div class="moduleSlide">
+          <div class="numberText">Podcast 2 / 5</div>
+          <h2>Why Lobby?</h2>
+          <p>
+            Listen to the basics of why non-profit organizations may need to
+            lobby, and learn about the benefits of connecting with your local
+            government.
+          </p>
+          <audio controls>
+            <source src="audio/podcast2.m4a" type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
+
+          <h3>Transcript</h3>
+
+          <p>Welcome to Module 2: Why might a nonprofit lobby?</p>
+
+          <p>
+            This presentation is part of the Non-Profit’s Guide to Lobbying the
+            New York State Legislature and Executive Branch. This module will
+            explain the reasons why nonprofits might consider engaging in
+            lobbying, and is Module 2 of 5. This module is for informational
+            purposes only. You should not rely on it as a substitute for, nor
+            does it constitute, legal advice by a competent legal professional.
+          </p>
+
+          <p>
+            Many nonprofits have learned that lobbying can be essential to the
+            success of the organization in carrying out its mission. Many think
+            of nonprofits and lobbying as oil and water (in that they don’t mix)
+            …and if they do, it is through a legal loophole. But this is not
+            correct -- even 501(c)(3)s, the most restricted type of tax-exempt
+            charitable organization, may lobby under certain circumstances.
+          </p>
+
+          <p>
+            In fact, some groups find that lobbying is VITAL to their ability to
+            carry out their nonprofit mission. Many successful nonprofits not
+            only provide services but also engage in advocacy efforts as well,
+            which can sometimes include lobbying. Nonprofits in underserved
+            communities may serve as a critical voice of the community in policy
+            discussions and the legislative process, ensuring that policies and
+            laws reflect the needs of the community.
+          </p>
+
+          <p>
+            While there are certain restrictions on lobbying under federal law,
+            and any nonprofit should always consult with an attorney prior to
+            engaging in any lobbying activity, this podcast will explore when a
+            group might consider engaging in such lobbying.
+          </p>
+
+          <p>
+            In fact, given the number of pressing issues facing non-profits and
+            the people they serve, it is more important than ever that
+            non-profits consider whether they will become involved in the public
+            policy debate and engage in lobbying provided the restrictions that
+            govern their operation under the law will allow it.
+          </p>
+
+          <p>
+            This podcast will not discuss those restrictions, but, instead, will
+            explore some of the issues a group might want to consider when
+            deciding whether to engage in lobbying (provided it speaks to its
+            attorney before actually doing such lobbying!).
+          </p>
+
+          <br />
+
+          <h3>WHAT ARE SOME THINGS LOBBYING CAN ACHIEVE?</h3>
+
+          <p>
+            Besides furthering the mission of an organization, lobbying can help
+            a nonprofit survive and thrive. It can bring favorable media
+            attention to an organization, which can lead to higher visibility
+            and increased awareness of the organization’s mission.
+          </p>
+
+          <p>
+            Nonprofit lobbying also helps a community solve problems. By
+            increasing the visibility of a nonprofit organization, it can
+            attract a large number of individuals from the community to learn
+            about and support the organization’s cause.
+          </p>
+
+          <p>
+            What is more, nonprofit lobbying helps give the community a
+            nonprofit serves a strong voice. For members of the community,
+            standing alone while taking a position contrary to powerful people
+            with political clout and financial resources can be daunting.
+            Nonprofits allow individuals to come together to give their voices
+            more weight and counteract some of the clout opponents of the
+            group’s mission may possess.
+          </p>
+
+          <p>
+            All of this shows how important lobbying is – both to the community
+            you are serving and to achieving your mission.
+          </p>
+
+          <br />
+
+          <h3>WHERE TO START</h3>
+
+          <p>
+            So, should you decide that you want to engage in lobbying, and your
+            lawyer says it’s okay to do so, where can you start?
+          </p>
+
+          <p>
+            First, Start Small. You don’t need to immediately hire a lobbyist or
+            drive to the state capital. Find a small coalition, or create your
+            own small organization. Work towards your goal one step at a time.
+          </p>
+
+          <p>
+            Next, Organize. It’s important to have a reliable group of
+            passionate members to address clear, identified issues. Once you
+            have done so, and you start to engage in lobbying, make sure you are
+            tracking all of your lobbying activities.
+          </p>
+
+          <p>
+            Lastly, Join Forces. Find other groups who have similar missions to
+            you and join them to pursue your common goal. You will likely
+            achieve more together.
+          </p>
+
+          <br />
+
+          <h3>CONCLUSION OF MODULE 2</h3>
+
+          <p>
+            We have now reached the conclusion of Module 2: Why Might a
+            Nonprofit Lobby. To learn about reporting requirements should you
+            decide to engage in lobbying, check out Module 3 of this podcast
+            series.
+          </p>
+
+          <br />
+          <br />
+          <br />
+        </div>
+
+        <div class="moduleSlide">
+          <div class="numberText">Podcast 3 / 5</div>
+          <h2>Can I Lobby?</h2>
+          <p>
+            Learn if your non-profit organizations can learn lobby in NYS, and
+            what activities needs to be reported.
+          </p>
+          <audio controls>
+            <source src="audio/podcast3.m4a" type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
+
+          <h3>Transcript</h3>
+
+          <p>Welcome to Module 3: Can Non-Profits Lobby in NYS</p>
+
+          <p>
+            This presentation is part of the Non-Profit’s Guide to Lobbying the
+            New York State Legislature and Executive Branch. In this module, we
+            will cover whether nonprofits may lobby in NYS and what activity
+            must be reported. This is module 3 of 5. This podcast is for
+            informational purposes only. You should not rely on it as a
+            substitute for, nor does it constitute, legal advice by a competent
+            legal professional.
+          </p>
+
+          <br />
+
+          <h3>CAN NONPROFITS LOBBY IN NYS? WHAT NEEDS TO BE REPORTED?</h3>
+
+          <p>
+            This presentation will serve as a Non-Profit’s Guide to Lobbying the
+            New York State Legislature and Executive Branch. This module will
+            cover whether non-profit groups and organizations can lobby in NYS,
+            and how to comply with state laws and regulations if a non-profit
+            decides to engage in lobbying in activity, and is Module 3 of 5.
+            This module is for informational purposes only. You should not rely
+            on it as a substitute for, nor does it constitute, legal advice by a
+            competent legal professional.
+          </p>
+
+          <br />
+
+          <h3>WHAT ACTIVITY COUNTS AS LOBBYING IN NYS</h3>
+
+          <p>First and foremost; what is considered lobbying in NYS?</p>
+
+          <p>
+            Under the NYS Lobbying Act, lobbying is defined as an attempt to
+            influence government decision making. An organization attempts to
+            influence government decision making if it engages in an activity
+            intended to support, oppose, modify, delay, expedite, or otherwise
+            affect a 1-c(c) Activity. These activities include:
+          </p>
+
+          <ul>
+            <li>
+              Passage or defeat of State or Local Legislation or Resolutions
+            </li>
+            <li>
+              Adoption, issuance, rescission or modification of State or Local
+              Executive Orders, or State or Local Rules or Regulations,
+            </li>
+            <li>
+              Rate making proceedings by a State Agency or municipality,
+              procurement determinations determined or influenced by: (a) public
+              officials or an entity working in conjunction with a public
+              official; or, (b) an officer, employee, or entity working in
+              conjunction with the unified court system in relation to
+              government contracts
+            </li>
+            <li>
+              Approval, disapproval, implementation or administration of
+              tribal-state compacts, memoranda of understanding, or any other
+              tribal-state agreements, or
+            </li>
+            <li>Attempts to influence public officials.</li>
+          </ul>
+
+          <p>
+            This is a much broader definition of lobbying than the IRS defines
+            lobbying as. As a result, non-profits should be aware that some of
+            their advocacy activity may need to be reported to NYS even if it
+            does not need to be reported to the IRS.
+          </p>
+
+          <br />
+
+          <h3>WHAT RESTRICTIONS DO NON-PROFITS LOBBYING IN NYS FACE?</h3>
+
+          <p>
+            NYS lobbying laws do not limit how much lobbying an organization,
+            person, or entity may engage in. There is no set number of hours or
+            a designated number of visits to the capitol or legislative offices
+            that a non-profit group must be aware of as a non-profit. Instead,
+            NYS requires the disclosure of lobbying activity if a $5,000
+            expenditure threshold has been met, and in some limited
+            circumstances even where spending is below $5,000.
+          </p>
+
+          <br />
+
+          <h3>WHAT LOBBYING ACTIVITY NEEDS TO BE REPORTED IN NYS?</h3>
+
+          <p>
+            In addition to the definition of lobbying discussed earlier in this
+            module , any work the organization does to prepare for public
+            lobbying communications should be reported. This includes planning
+            and strategy sessions and coordination meetings. It also includes
+            work drafting legislation that does not yet exist, if the
+            organization then pushes for that legislation to be enacted.
+          </p>
+
+          <p>
+            For example, holding a meeting to decide which policies to focus on
+            for the upcoming year would likely not be lobbying until specific
+            policies were identified, and the decision is made to pursue such a
+            policy change by engaging with the legislature.
+          </p>
+
+          <p>
+            Please note that a tool to help document and track your
+            organization’s lobbying activities is provided on another page of
+            this website.
+          </p>
+
+          <br />
+
+          <h3>CONCLUSION OF MODULE 3</h3>
+
+          <p>
+            We have now reached the conclusion of Module 3, covering whether
+            nonprofits may lobby and applicable reporting requirements. To learn
+            about how nonprofits can lobby in New York State, visit Module 4.
+          </p>
+
+          <br />
+          <br />
+          <br />
+        </div>
+
+        <div class="moduleSlide">
+          <div class="numberText">Podcast 4 / 5</div>
+          <h2>How Can I Lobby?</h2>
+          <p>
+            Learn how non-profit organizations can lobby in NYS. There are
+            different definitions as well as methods that may benefit your
+            organization!
+          </p>
+          <audio controls>
+            <source src="audio/podcast4.m4a" type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
+
+          <h3>Transcript</h3>
+
+          <p>Welcome to Module 4: How can Nonprofits Lobby in NYS?</p>
+
+          <p>
+            This presentation is part of the Non-Profit’s Guide to Lobbying the
+            New York State Legislature and Executive Branch. In this module, we
+            will cover some important issues related to the ability of
+            nonprofits to lobby in NYS, and is module 4 of 5. This podcast is
+            for informational purposes only. It also only covers New York law
+            and does not cover federal law, which also addresses some of these
+            issues. Please consult an attorney for specific guidance on any
+            questions related to your organization’s own planned or ongoing
+            lobbying activities. You should not rely on it as a substitute for,
+            nor does it constitute, legal advice by a competent legal
+            professional.
+          </p>
+
+          <br />
+
+          <h3>HOW CAN NON-PROFITS LOBBY IN NEW YORK STATE</h3>
+
+          <p>
+            As stated in module one, there are two main types of lobbying:
+            grassroots and direct. As a quick recap, direct lobbying involves
+            direct contact with a Public Official or a member of their staff in
+            an attempt to influence what is known as a 1(c)(c) activity, whereas
+            grassroots lobbying is an attempt to influence the public, and
+            encouraging the public to take action, with respect to a specific
+            1(c)(c) activity.
+          </p>
+
+          <p>
+            Direct lobbying is the more traditional method for lobbying, while
+            grassroots lobbying might be considered are more modern method for
+            lobbying. Each one is an effective way to lobby, but choosing a
+            method is critical in a non-profit's success for lobbying to achieve
+            their goals.
+          </p>
+
+          <p>
+            If a non-profit wants to influence legislation to fit its specific
+            purpose, its leaders and members should consider a direct lobbying
+            strategy. It is important to target the legislator or legislators
+            who represent the district in which the organization operates, or
+            where the organization has its headquarters.
+          </p>
+
+          <p>
+            Once the proper legislator is identified, arrange a meeting or
+            similar opportunity to engage directly with that individual or a
+            member of his or her staff. During this meeting, discuss the
+            specific piece of legislation that the organization would like to
+            change and convey the organization’s position – whether it be in
+            support or opposition.
+          </p>
+
+          <p>
+            A recent example of successful direct lobbying in New York is that
+            carried out by Planned Parenthood of New York. During the summer of
+            2019, Planned Parenthood decided to turn down about $60 million in
+            federal funding after the federal government placed what Planned
+            Parenthood considered unreasonable expectations on recipients of
+            federal family planning resources.
+          </p>
+
+          <p>
+            Planned Parenthood engaged directly with New York State’s Governor
+            and its local state elected officials, working tirelessly to secure
+            additional funding through the state budget process, thereby
+            avoiding any negative consequences for their refusal of Federal
+            funds. This is a prime example of direct lobbying.
+          </p>
+
+          <p>
+            If a non-profit wants to influence the public to act and use the
+            public as a vehicle for change, it should use grassroots lobbying to
+            do so. The public is the key element in grassroots lobbying and the
+            public must be engaged to act either explicitly or implicitly by
+            what is known as a “call to action”: for example, a request that
+            members of the public contact a legislator in their district.
+          </p>
+
+          <p>
+            One method to engage the public is through the use of social media,
+            such as Facebook and Instagram, to inform the public of the
+            non-profit's purpose and to urge members of the public to contact
+            their local elected officials and influence them to support or
+            oppose a piece of pending legislation. Successful grassroots
+            lobbyists know their target—that is, the local elected
+            official--well and are well-versed in how to engage the public to
+            further their goals.
+          </p>
+
+          <p>
+            We look again to the work of Planned Parenthood of New York for
+            another example of a successful attempt at grassroots lobbying. In
+            2018, supporters of Planned Parenthood paid a visit to Albany to
+            lobby Gov. Andrew Cuomo and other elected officials to advocate for
+            women’s rights. While some direct lobbying was initiated by Planned
+            Parenthood, its leaders and organizers also brought with them more
+            than 1,000 sexual and reproductive health advocates from around New
+            York State in support of keeping what has come to be known as the
+            Women’s Agenda in the state budget and funding the state’s family
+            planning initiatives.
+          </p>
+
+          <p>
+            By encouraging the public to come from all around the state to
+            engage elected officials in the group’s lobbying efforts, Planned
+            Parenthood was able to show legislators that their efforts helping
+            women are supported by many people and organizations. These efforts
+            ultimately led them to influence legislator’s thinking when drafting
+            new bills concerning women’s reproductive health.
+          </p>
+
+          <p>
+            In Module 3 we noted that NYS does not restrict the amount of
+            lobbying in which an organization can participate. However, there is
+            an important caveat that we’ll explain here. Under federal law,
+            non-profits cannot dedicate the majority of their activities to
+            lobbying, as opposed to the stated charitable mission of their
+            501(c)(3), or they will risk losing their 501(c)(3) status. Please
+            note that a tool to help document and track your organization’s
+            lobbying activities in terms of federal requirements is provided on
+            another page of this website.
+          </p>
+
+          <p>
+            In conclusion, an organization may lobby through direct lobbying or
+            grassroots lobbying, but there are restrictions imposed on such
+            lobbying under federal law. Please consult an attorney familiar with
+            these restrictions prior to engaging in any lobbying, even that
+            which might be permissible under New York State law.
+          </p>
+
+          <br />
+
+          <h3>CONCLUSION OF MODULE 4</h3>
+
+          <p>
+            We have now reached the conclusion of Module 4: How Can Nonprofits
+            Lobby in NYS. To learn about effective lobbying strategies, visit
+            Module 5.
+          </p>
+
+          <br />
+          <br />
+          <br />
+        </div>
+
+        <div class="moduleSlide">
+          <div class="numberText">Podcast 5 / 5</div>
+          <h2>Lobbying Strategies</h2>
+          <p>
+            Learn strategies on how to lobby as a non-profit organization in
+            NYS.
+          </p>
+          <audio controls>
+            <source src="audio/podcast5.m4a" type="audio/mp4" />
+            Your browser does not support the audio element.
+          </audio>
+
+          <h3>Transcript</h3>
+
+          <p>Welcome to Module 1: Helpful Definitions.</p>
+
+          <p>
+            This presentation is part of the Non-Profit’s Guide to Lobbying the
+            New York State Legislature and Executive Branch. In this module, we
+            will explain strategies for effectively lobbying the New York State
+            Legislature and Executive Branch. This is the fifth and final
+            module. This podcast is for informational purposes only. You should
+            not rely on it as a substitute for, nor does it constitute, legal
+            advice by a competent legal professional.
+          </p>
+
+          <br />
+
+          <h3>STRATEGIES FOR EFFECTIVE LOBBYING</h3>
+
+          <p>
+            The first component of any effective lobbying strategy is: BE CLEAR
+            ABOUT WHAT IT IS YOU ARE ASKING OF GOVERNMENT OFFICIALS.
+          </p>
+
+          <p>
+            The idea of distinguishing between different types of lobbying, like
+            traditional vs. grassroots, and putting clear instructions about how
+            to lobby on a media platform is helpful. For example, explicitly
+            instruct your constituents to “Do X and contact Senator Y”. It’s
+            important to be clear in your mission because the general public
+            does not understand the subtle nuances of political lobbying – it’s
+            all lobbying to them.
+          </p>
+
+          <p>
+            But according to NYS legislators, there is a fundamental difference.
+            Making sure your organization’s goals in engaging in lobbying are
+            clear and that those you are lobbying understand what it is you are
+            trying to achieve. And this leads to the second strategy.
+          </p>
+
+          <p>
+            Second, HAVE A SPECIFIC ASK. Public officials don’t want to try and
+            figure out what it is that you want them to do. Having a specific
+            ask—that is, the thing you are “asking” the government official to
+            do—is one of the most effective campaign strategies. Additionally,
+            have a justification or rationale for this ask with talking points
+            that a layperson is capable of expressing, with no lofty concepts
+            that are difficult to explain or understand.
+          </p>
+
+          <p>
+            Third, RESPECT THE ROLES OF LEGISLATORS AND OTHER GOVERNMENT
+            OFFICIALS. Legislators want to get reelected – approach legislators
+            as a constituent. Other government officials want to serve the
+            public. For legislators in particular, having a hometown touch with
+            their constituents is important. Make sure you thank them,
+            personally, even just for meeting with them.
+          </p>
+
+          <p>
+            With elected officials, it’s also good to thank them publicly on
+            social media. Send out a tweet praising the legislator or other
+            elected official for his or her help and the concern he or she
+            expressed about your issue.
+          </p>
+
+          <p>
+            Lastly, UNDERSTAND THE POLITICAL LANDSCAPE. There is a list of slang
+            terms that are used in the realm of New York State lobbying –
+            familiarize yourself with them, so you’re not asking where to find
+            “THE WELL.” Review Module 1: Definitions to learn more about these
+            terms. Similarly, if you are seeking financial support for your
+            organization when you are engaging in lobbying, try to familiarize
+            yourself with potential funding and grant resources, and the
+            restrictions that accompany them.
+          </p>
+
+          <br />
+
+          <h3>CONCLUSION OF MODULE 5</h3>
+
+          <p>
+            We have now reached the conclusion of Module 5: Effective Lobbying
+            Strategies in New York State. Thank you for listening.
+          </p>
+
+          <br />
+          <br />
+          <br />
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br />
+
+      <div id="dotHide" style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+      </div>
+
+      <!-- Multi-purpose Modal pop-up -->
+      <div id="modalPopUp" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="hideModal()">&times;</span>
+          <div id="modalText"></div>
+          <button
+            type="button"
+            class="modalClose acceptInstructions altHover"
+            onclick="hideModal()"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </main>
+    <hr class="footer__hr" />
+    <footer class="footer">
+      <div class="footer__content" id="footer-content">
+        <button
+          class="footer__button"
+          id="aboutBtn"
+          onclick="window.location.href= 'aboutus.html';"
+        >
+          About us
+        </button>
+        <button
+          class="footer__button"
+          id="contactBtn"
+          onclick="showContactModal()"
+        >
+          Contact us!
+        </button>
+        <img
+          class="footer__logo"
+          src="images/lobbsterLogo.png"
+          alt="NY Lobbying Express"
+        />
+      </div>
+      <div id="contactModal" class="modal">
+        <div class="modal2">
+          <div class="mdcontact">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <form class="formcontact" id="formcontact" method="post">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" />
+
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" />
+
+              <label for="email">E-mail</label>
+              <input type="text" id="email" name="email" />
+
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="We look forward to hearing from you!"
+              ></textarea>
+
+              <input
+                type="submit"
+                name="submitContact"
+                value="Submit"
+                class="altHover"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/js.js"></script>
+    <script src="js/disclaimer.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/contactModal.js"></script>
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  </body>
+</html>
