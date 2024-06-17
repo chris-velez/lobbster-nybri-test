@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Ratings for New York Bank Ratings Index</title>
+    <meta
+      name="description"
+      content="Ratings for the New York Bank Ratings Index"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="css/styleMIN.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+    <link rel="icon" type="image/ico" href="logo/favicon.ico" />
+  </head>
+
+  <body ng-app="myApp" ng-controller="myController">
+    <span class="skip-to-main"><a href="#main">Skip to Main Content</a></span>
+    <div class="ratings-overlay" ng-cloak ng-show="showme">
+      <div class="overlay-content">
+        <h2>
+          <u>Your Results</u
+          ><span class="close" ng-click="showme=false"
+            ><span class="cr-close">close results</span
+            ><span class="x-close">X</span></span
+          >
+        </h2>
+        <table class="ratings-table">
+          <tr>
+            <th ng-bind="rankingType"></th>
+            <!-- This line is used to detail either "Bank Name" or "Fintech Name" depending on what option they choose for their custom input-->
+            <th>Score (out of 100)</th>
+          </tr>
+          <tr ng-repeat="item in allScores | orderBy: '-score'">
+            <td>{{item.bankname}}</td>
+            <td>{{item.score}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="main" class="container">
+      <div class="header row">
+        <a href="index.html"
+          ><img src="logo/logo_white.png" alt="York Bank Ratings Index logo"
+        /></a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="ratings.html">Ratings</a>
+          <a href="scoring.html">Scoring</a>
+        </nav>
+      </div>
+      <div class="bank-rating row">
+        <div id="bank-weights" class="bank-rating-input">
+          <h1>Bank & Fintech Ratings</h1>
+          <p>
+            This site offers New Yorkers the opportunity to review the products
+            and services of the nineteen largest banks servicing individual
+            consumers throughout the state. Individuals can also customize this
+            bank ranking index to reflect their own interests by selecting the
+            categories they would like to include in their own index and then
+            weighting those categories in accordance to their relative
+            importance to the individual. The first thing for the customer to do
+            is select the categories that he or she wants to include in the
+            customized ranking. Next, apply a percentage weight (out of 100) to
+            give to each category. Finally, apply the categories and their
+            weights to the final score to generate a ranking of the nineteen
+            banks based on the customer’s own ranking index. Through this
+            process, consumers can generate their own, customized ranking that
+            reflects the products and services that are the most important to
+            them.
+          </p>
+          <div id="accordion" class="ranking-container">
+            <h3 ng-init="bankDef()">View the Default Ratings for All Banks</h3>
+            <div>
+              <p>
+                The scores in the table below are based on all categories being
+                equally important to a customer. The banks are sorted by their
+                overall rankings from best to worst.
+              </p>
+              <table>
+                <tr>
+                  <th>Bank Name</th>
+                  <th>Score (out of 100)</th>
+                </tr>
+                <tr ng-repeat="item in allScores3 | orderBy: '-score'">
+                  <td>{{item.bankname}}</td>
+                  <td>{{item.score}}</td>
+                </tr>
+              </table>
+            </div>
+            <h3>Customize Your Ratings</h3>
+            <div>
+              <div id="slider-container" class="slider-container">
+                <p>
+                  In this section, you can enter weights for any of the 20
+                  categories used for ranking banks. If the value typed into the
+                  box isn't valid, it will automatically be set to 0. When your
+                  Total Percent is 100, you can click "Calculate Bank Scores" to
+                  produce a customized table with banks listed from best to
+                  worst.
+                </p>
+                <!-- Updated ver for Button with disable/inable function respect to Total Percent -->
+                <div class="visible-label">
+                  <label
+                    ><strong>Total Percent:</strong> {{ calculateTotal() }}
+                    <br /><strong>Remaining:</strong> {{ 100 - calculateTotal()
+                    }}</label
+                  >
+
+                  <div id="myButtonContainer">
+                    <button
+                      type="button"
+                      ng-click="checkAndCalculateBankScores()"
+                      ng-class="{'button-disabled': calculateTotal() !== 100}"
+                    >
+                      Calculate Bank Scores
+                    </button>
+                    <div ng-show="showBankAlert" class="alert alert-message">
+                      Please spend all 100 points for accurate bank scores
+                      calculation.
+                    </div>
+                  </div>
+                </div>
+                <!-- Updated End Here : 03/14/2024 -->
+              </div>
+              <div class="form-container">
+                <form>
+                  <ul>
+                    <li>
+                      <label for="branches">Total Branch Locations</label>
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.numBranches"
+                        id="branches"
+                      />
+                    </li>
+                    <li>
+                      <label for="branchLocations"
+                        >Bank Location Distribution</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.branchLocDistribution"
+                        id="branchLocations"
+                      />
+                    </li>
+                    <li>
+                      <label for="onlineBanking">Online Banking</label>
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.onlineBankings"
+                        id="onlineBanking"
+                      />
+                    </li>
+                    <li>
+                      <label for="atmFee">ATM Fees Out of Network</label>
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.atmFees"
+                        id="atmFee"
+                      />
+                    </li>
+                    <li>
+                      <label for="checkFee">Checking Account Fees</label>
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.checkingFees"
+                        id="checkFee"
+                      />
+                    </li>
+
+                    <li>
+                      <label for="saveFee">Savings Account Fees</label>
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.savingsFees"
+                        id="saveFee"
+                      />
+                    </li>
+                    <li>
+                      <label for="overdraftPrac"
+                        >Overdraft Policy Practices</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.overdraft"
+                        id="overdraftPrac"
+                      />
+                    </li>
+                    <li>
+                      <label for="overdraftThresh"
+                        >Overdraft Thresholds and Limits</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.overdraftLimit"
+                        id="overdraftThresh"
+                      />
+                    </li>
+                    <li>
+                      <label for="creditCard">Basic Credit Cards</label>
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.creditCards"
+                        id="creditCard"
+                      />
+                    </li>
+                    <li>
+                      <label for="custService">Customer Service</label>
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.customerService"
+                        id="custService"
+                      />
+                    </li>
+
+                    <li>
+                      <label for="loms"
+                        >Loan Origination Market Share in NY State</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.loanOriginationMarketShare"
+                        id="loms"
+                      />
+                    </li>
+                    <li>
+                      <label for="loanNY"
+                        >Loan Acceptance Rate in NY State</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.loanAcceptNy"
+                        id="loanNY"
+                      />
+                    </li>
+                    <li>
+                      <label for="loanLatinoB"
+                        >Loan Acceptance Rate for Latino Borrowers</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.loanAcceptLatino"
+                        id="loanLatinoB"
+                      />
+                    </li>
+                    <li>
+                      <label for="loanBlackB"
+                        >Loan Acceptance Rate for Black Borrowers</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.loanAcceptBlack"
+                        id="loanBlackB"
+                      />
+                    </li>
+                    <li>
+                      <label for="loanLowB"
+                        >Loan Acceptance Rate for Low to Moderate Income
+                        Borrowers</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.loanAcceptLowIncome"
+                        id="loanLowB"
+                      />
+                    </li>
+
+                    <li>
+                      <label for="percenLow"
+                        >Percentage of Total Low to Moderate Income
+                        Borrowers</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.percentLowBorrowers"
+                        id="percenLow"
+                      />
+                    </li>
+                    <li>
+                      <label for="loanAcceptLow"
+                        >Loan Acceptance Rate for Low to Moderate Income
+                        Communities</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.loanAcceptLowComm"
+                        id="loanAcceptLow"
+                      />
+                    </li>
+                    <li>
+                      <label for="commofColor"
+                        >Percentage of Total in Communities of Color</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.percentCommColor"
+                        id="commofColor"
+                      />
+                    </li>
+                    <li>
+                      <label for="altID"
+                        >Acceptance of Alternate Forms of Identification</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.acceptAltId"
+                        id="altID"
+                      />
+                    </li>
+                    <li>
+                      <label for="wireTrans"
+                        >Cost of International Wire Transfers</label
+                      >
+                      <input
+                        type="number"
+                        ng-blur="reset()"
+                        ng-model="weights.wireTransferCost"
+                        id="wireTrans"
+                      />
+                    </li>
+
+                    <!--ng-show="calculateTotal() === 100"
+                                    <li>
+                                        <label>Total Percent: {{ calculateTotal() }}
+                                            <br>Percent Remaining: {{ 100 - calculateTotal()}}</label>
+                                        <button type="button" ng-click="finalScore(); showme='true'">Calculate Bank Scores</button>
+                                    </li>-->
+                  </ul>
+                  <div class="hidden-label">
+                    <label
+                      ><strong>Total Percent:</strong> {{ calculateTotal() }}
+                      <br /><strong>Remaining:</strong> {{ 100 -
+                      calculateTotal()}}</label
+                    >
+                    <button
+                      type="button"
+                      ng-click="finalScore(); showme='true'"
+                    >
+                      Calculate Bank Scores
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Default FINTECH ratings-->
+
+            <h3 ng-init="fintechDef()">
+              View the Default Ratings for All Fintech
+            </h3>
+            <div>
+              <p>
+                The scores in the table below are based on all categories being
+                equally important to a customer. The Fintech are sorted by their
+                overall rankings from best to worst.
+              </p>
+              <table>
+                <tr>
+                  <th>Fintech Name</th>
+                  <th>Score (out of 100)</th>
+                </tr>
+                <tr ng-repeat="item in allScores2 | orderBy: '-score'">
+                  <td>{{item.bankname}}</td>
+                  <td>{{item.score}}</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- HTML for CUSTOM FITECH AREA -->
+            <h3>Customize Your Fintech Ratings</h3>
+            <div>
+              <div id="slider-container" class="slider-container">
+                <p>
+                  In this section, you can enter weights for any of the 16
+                  categories used for ranking Fintech. If the value typed into
+                  the box isn't valid, it will automatically be set to 0. When
+                  your Total Percent is 100, you can click "Calculate Fintech
+                  Scores" to produce a customized table with banks listed from
+                  best to worst.
+                </p>
+                <!-- Updated ver for Button with disable/inable function respect to Total Percent -->
+                <div class="visible-label">
+                  <label
+                    ><strong>Total Percent:</strong> {{ calculateTotal2() }}
+                    <br /><strong>Remaining:</strong> {{ 100 - calculateTotal2()
+                    }}</label
+                  >
+
+                  <div id="myButtonContainer">
+                    <button
+                      type="button"
+                      ng-click="checkAndCalculateFintechScores()"
+                      ng-class="{'button-disabled': calculateTotal2() !== 100}"
+                    >
+                      Calculate Fintech Scores
+                    </button>
+                    <div ng-show="showFintechAlert" class="alert alert-message">
+                      Please spend all 100 points for accurate fintech scores
+                      calculation.
+                    </div>
+                  </div>
+                </div>
+                <!-- Updated End Here : 2/20/2024 -->
+              </div>
+              <div class="form-container">
+                <form>
+                  <ul>
+                    <li>
+                      <label for="p2p">P2P Banking </label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.peerToPeerBankin"
+                        id="p2p"
+                      />
+                      <!-- If you plan to adjust this in the future please remember to keep the "ng-blur" and "ng-model" are the same in the different one! -->
+                    </li>
+                    <li>
+                      <label for="encryptTransfer"
+                        >Encrypted financial transfers
+                      </label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.encryptTrans"
+                        id="encryptTransfer"
+                      />
+                    </li>
+                    <li>
+                      <label for="linkExternal"
+                        >Link external bank account</label
+                      >
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.linkExternalAccount"
+                        id="linkExternal"
+                      />
+                    </li>
+                    <li>
+                      <label for="linkExternalCard"
+                        >Link external credit card</label
+                      >
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.linkExternalCreditCard"
+                        id="linkExternalCard"
+                      />
+                    </li>
+                    <li>
+                      <label for="fProtect">Fraud protection</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.fraudProtection"
+                        id="fProtect"
+                      />
+                    </li>
+
+                    <li>
+                      <label for="oneTLogin">One touch login</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.oneTouchLogin"
+                        id="oneTLogin"
+                      />
+                    </li>
+                    <li>
+                      <label for="payAdv">Paycheck advance</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.paycheckAdvance"
+                        id="payAdv"
+                      />
+                    </li>
+                    <li>
+                      <label for="contactlessPay">Contactless payment</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.contactlessPayment"
+                        id="contactlessPay"
+                      />
+                    </li>
+                    <li>
+                      <label for="twoFA">2 factor authentication</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.twoFactorAuth"
+                        id="twoFA"
+                      />
+                    </li>
+                    <li>
+                      <label for="transFees">Transaction fees</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.transactionFees"
+                        id="transFees"
+                      />
+                    </li>
+
+                    <li>
+                      <label for="creditBuild">Credit building</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.creditBuilding"
+                        id="creditBuild"
+                      />
+                    </li>
+                    <li>
+                      <label for="ccOffering">Credit card offering</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.creditCardOffering"
+                        id="ccOffering"
+                      />
+                    </li>
+                    <li>
+                      <label for="odFees">Overdraft fees</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.overdraftFees"
+                        id="odFees"
+                      />
+                    </li>
+                    <li>
+                      <label for="ccFees">Credit card payment fees</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.creditCardPaymentFees"
+                        id="ccFees"
+                      />
+                    </li>
+                    <li>
+                      <label for="cryptoOptions"
+                        >Cryptocurrency purchase options</label
+                      >
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.cryptoPurchaseOptions"
+                        id="cryptoOptions"
+                      />
+                    </li>
+
+                    <li>
+                      <label for="cashAdv">Cash advance</label>
+                      <input
+                        type="number"
+                        step="any"
+                        ng-blur="reset2()"
+                        ng-model="tWeights.cashAdvance"
+                        id="cashAdv"
+                      />
+                    </li>
+
+                    <!--ng-show="calculateTotal() === 100"
+                                    <li>
+                                        <label>Total Percent: {{ calculateTotal() }}
+                                            <br>Percent Remaining: {{ 100 - calculateTotal()}}</label>
+                                        <button type="button" ng-click="finalScore(); showme='true'">Calculate Bank Scores</button>
+                                    </li>-->
+                  </ul>
+                  <div class="hidden-label">
+                    <label
+                      ><strong>Total Percent:</strong> {{ calculateTotal2() }}
+                      <!-- Modified for new function -->
+                      <br /><strong>Remaining:</strong> {{ 100 -
+                      calculateTotal2()}}</label
+                    >
+                    <!-- Modified for new function -->
+                    <button
+                      type="button"
+                      ng-click="finalScore2(); showme='true'"
+                    >
+                      Calculate Fintech scores
+                    </button>
+                    <!-- Mobile Button -->
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Accordian Div End -->
+          <!-- New Content-->
+        </div>
+      </div>
+    </div>
+    <div class="footer row">
+      <p>
+        This website was designed by the State University of New York at
+        Albany's course of Informatics students Isadora Morandi Cabrera, James
+        Corona, Oleg Balitskiy & Youngwoo Kim, under the supervision of professor
+        Christopher Velez, with content provided by professor Ray Brescia -
+        Albany Law School.
+      </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/index.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#accordion")
+          .accordion({
+            active: false,
+            collapsible: true,
+            heightStyle: "content",
+          })
+          .show();
+      });
+
+      /*$(function () {
+                $("#accordion").accordion({
+                    active: false,
+                    collapsible: true,
+                    heightStyle: "content"
+
+                });
+            }); */
+    </script>
+    <script>
+      (function (i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function () {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "https://www.google-analytics.com/analytics.js",
+        "ga"
+      );
+
+      ga("create", "UA-40323192-7", "auto");
+      ga("send", "pageview");
+    </script>
+  </body>
+</html>
