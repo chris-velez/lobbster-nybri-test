@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z001KJTPQW"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z001KJTPQW");
+    </script>
+
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8" />
+    <title>Lobbster: The Best NYS Lobbying Reporting Tool!</title>
+    <meta
+      name="description"
+      content="We can help you identify if: You have been lobbying, if you should file a report due to lobbying, and different ways you might have been lobbying!"
+    />
+    <meta
+      name="keywords"
+      content="Lobbying, Lobbying Expenses, Social Media Lobbying, New York State Lobbying, NYS Lobbying, Lobbying Report, Lobbying Activities"
+    />
+    <meta
+      name="author"
+      content="This website was made in collaborations with Albany Law and SUNY Albany. The students who worked on this were Jocelyn Chan, Jesse Conklin, Matthew Galetta, and Gyuhaeng 'Alex' Lee!"
+    />
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/ico" href="images/lobbster.ico" />
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body onload="checkDisclaimer()">
+    <!-- Primary Page Layout -->
+
+    <nav class="nav">
+      <img
+        class="logo"
+        src="images/lobbsterLogo.png"
+        alt="Lobbster Logo: The website for learning about NYS lobbying!"
+      />
+      <ul class="nav__links">
+        <li><a class="nav__link active" href="index.html">Home</a></li>
+        <li><a class="nav__link" href="modules.html">Modules</a></li>
+        <li><a class="nav__link" href="podcasts.html">Podcasts</a></li>
+        <li><a class="nav__link" href="resources.html">Resources</a></li>
+      </ul>
+    </nav>
+
+    <nav class="nav_mobile">
+      <img
+        class="logo"
+        src="images/lobbsterLogo.png"
+        alt="Lobbster: The website for learning about NYS lobbying!"
+      />
+      <img
+        onclick="nav_burger()"
+        id="nav_burger"
+        src="images/burger.png"
+        alt="burger"
+      />
+      <div id="nav_burger_hide" style="display: none">
+        <a class="active" href="index.html">Home</a>
+
+        <a href="modules.html">Modules</a>
+
+        <a href="podcasts.html">Podcasts</a>
+
+        <a href="resources.html">Resources</a>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Disclaimer -->
+      <div id="modalDisclaimer" class="modal disclaimer">
+        <div class="modal-content">
+          <h2>Disclaimer</h2>
+          <p>
+            This web tool is in no way affiliated or endorsed by New York State.
+          </p>
+          <p>
+            Albany Law School has made no warranties regarding web-based tool
+            and that this software is being provided on an “as is” basis without
+            any warranties or representations of any kind. Albany Law School
+            disclaims all warranties worldwide with regard to the software,
+            express or implied, including any warranty of software performance,
+            and any implied warranties of fitness for a specific purpose,
+            accuracy, or merchantability of computer program, merchantable
+            quality or noninfringement of third-party rights. Some states or
+            jurisdictions do not allow the exclusion of implied warranties, so
+            the above limitations may not apply to you.
+          </p>
+          <p>
+            This product could include inaccuracies in the information therein
+            or typographical errors. Albany Law School disclaims all liability
+            related to such inaccuracies or errors. Your sole remedy for all
+            claims related to the product shall be the amount paid for the
+            product. The material is not to be interpreted as legal advice; it
+            is for informational purposes only. Users seeking legal advice
+            should consult a licensed attorney in their jurisdiction.
+          </p>
+          <button
+            type="button"
+            class="modalClose altHover"
+            id="acceptDisclaimer"
+            onclick="acceptDisclaimer()"
+          >
+            Accept
+          </button>
+        </div>
+      </div>
+
+      <!-- Slideshow -->
+
+      <div class="homeSlideshowContainer">
+        <!-- Description Slide -->
+        <div class="moduleSlide">
+          <img
+            class="descImg"
+            src="images/skyline.png"
+            alt="Lobbster Lobbying: Skyline"
+            style="width: 100%; object-fit: cover"
+          />
+
+          <h2 class="homeTitle">
+            Guide for Non-Profits to Lobbying Under New York Law
+          </h2>
+
+          <p class="homeDescription">
+            Welcome! This tool is intended to serve as a web-based guide to
+            lobbying for non-profit organizations in New York State. It is
+            intended to assist you in answering some important questions you may
+            have about lobbying and your organization’s activities as you
+            advocate for social change.
+            <br /><br />
+            Each of the modules on the website offer information about a range
+            of topics that can help you make informed decisions and that you
+            stay in compliance with the law, particularly as it relates to
+            requirements that certain types of lobbying activities will require
+            you and/or your organization to report such activities to New York
+            State authorities on a regular basis.
+            <br /><br />
+            Click below for a list of the different modules that explain
+            different aspects of the law as it relates to lobbying activities by
+            non-profits as well as a collection of podcasts that provide
+            additional information.
+          </p>
+        </div>
+        <!-- Slide 1 -->
+        <div class="moduleSlide">
+          <img
+            src="images/NYSCapitolWestSide.jpg"
+            alt="Lobbster Lobbying: NYS Capitol Building"
+            style="width: 100%; height: 500px; object-fit: cover"
+          />
+          <h2 class="homeQuestion">Are you new to lobbying?</h2>
+          <h4 class="homeQuestionInfo">
+            Explore our learning modules for some great tips.
+          </h4>
+
+          <a href="modules.html" class="goThereButton"> Learning Modules </a>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="moduleSlide">
+          <img
+            src="images/courthouse.png"
+            alt="Lobbster Lobbying: Courthouse"
+            style="width: 100%; height: 500px; object-fit: cover"
+          />
+          <h2 class="homeQuestion">Ready to start reporting?</h2>
+          <h4 class="homeQuestionInfo">
+            The reporting tool makes it easy to report expenses and activities.
+          </h4>
+
+          <a href="reporting_expenses.html" class="goThereButton">
+            Reporting
+          </a>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="moduleSlide">
+          <img
+            src="images/library.png"
+            alt="Lobbster Lobbying: Library"
+            style="width: 100%; height: 500px; object-fit: cover"
+          />
+          <h2 class="homeQuestion">Want to Learn More?</h2>
+          <h4 class="homeQuestionInfo">
+            Check out the New York State Join Commission on Public Ethics
+            website.
+          </h4>
+
+          <a
+            href="https://jcope.ny.gov/lobbying-overview"
+            class="goThereButton"
+          >
+            NYS Lobbying Site
+          </a>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a
+          onkeypress="click()"
+          tabindex="0"
+          class="next"
+          onclick="plusSlides(1)"
+          >&#10095;</a
+        >
+      </div>
+      <br />
+      <div style="text-align: center">
+        <span
+          onkeypress="click()"
+          tabindex="0"
+          class="dot"
+          onclick="currentSlide(1)"
+        ></span>
+        <span
+          onkeypress="click()"
+          tabindex="0"
+          class="dot"
+          onclick="currentSlide(2)"
+        ></span>
+        <span
+          onkeypress="click()"
+          tabindex="0"
+          class="dot"
+          onclick="currentSlide(3)"
+        ></span>
+        <span
+          onkeypress="click()"
+          tabindex="0"
+          class="dot"
+          onclick="currentSlide(4)"
+        ></span>
+      </div>
+
+      <!-- End Slideshow -->
+
+      <br />
+
+      <!-- Flipcards -->
+
+      <div class="container">
+        <div class="flipcardholder">
+          <div tabindex="0" class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <p>What is Lobbying?</p>
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  <a href="modules.html">Learn more about lobbying.</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div tabindex="0" class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <p>Am I Lobbying?</p>
+              </div>
+              <div class="flip-card-back">
+                <p><a href="modules.html">Learn if you're lobbying!</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div tabindex="0" class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <p>Direct Lobbying on Social Media</p>
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  <a href="modules.html">Learn more about direct lobbying.</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div tabindex="0" class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <p>Grassroots Lobbying on Social Media</p>
+              </div>
+              <div class="flip-card-back">
+                <p>
+                  <a href="modules.html"
+                    >Learn more about grassroots lobbying.</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- End flipcards -->
+
+      <!-- Multi-purpose Modal pop-up -->
+      <div id="modalPopUp" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="hideModal()">&times;</span>
+          <div id="modalText"></div>
+          <button
+            type="button"
+            class="modalClose acceptInstructions altHover"
+            onclick="hideModal()"
+          >
+            OK
+          </button>
+        </div>
+      </div>
+    </main>
+    <hr class="footer__hr" />
+    <footer class="footer">
+      <div class="footer__content">
+        <button
+          class="footer__button"
+          onclick="window.location.href= 'aboutus.html';"
+        >
+          About us
+        </button>
+        <button
+          class="footer__button"
+          id="contactBtn"
+          onclick="showContactModal()"
+        >
+          Contact us!
+        </button>
+        <img
+          class="footer__logo"
+          src="images/lobbsterLogo.png"
+          alt="NY Lobbying Express"
+        />
+      </div>
+      <div id="contactModal" class="modal">
+        <div class="modal2">
+          <div class="mdcontact">
+            <span class="close" onclick="closeContactModal()">&times;</span>
+            <form class="formcontact" id="formcontact" action="" method="post">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" />
+
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" />
+
+              <label for="email">E-mail</label>
+              <input type="text" id="email" name="email" />
+
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="We look forward to hearing from you!"
+              ></textarea>
+
+              <input
+                type="submit"
+                name="submitContact"
+                value="Submit"
+                class="altHover"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/js.js"></script>
+    <script src="js/disclaimer.js"></script>
+    <script src="js/contactModal.js"></script>
+    <script src="js/contact.js"></script>
+    <!-- End Document -->
+  </body>
+</html>
