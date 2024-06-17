@@ -57,7 +57,7 @@ myApp.controller('myController', function ($scope) {
 			cryptoPurchaseOptions: 0,
 			cashAdvance: 0
 		
-	}
+	};
 	
 	$scope.rankingType = "";                              // This variable is used as text for which ranking results you get (Bank vs Fintech) [~Line 26 in ranking.html] 
 	
@@ -257,7 +257,7 @@ myApp.controller('myController', function ($scope) {
 			creditCardOffering: 0,
 			overdraftFees: 0,
 			creditCardPaymentFees: 0,
-			cryptoPurchaseOptions: .5,
+			cryptoPurchaseOptions: 0.5,
 			cashAdvance: 0
 		
 	}}];
@@ -275,7 +275,7 @@ myApp.controller('myController', function ($scope) {
             branchLocDistribution: 4,
             onlineBankings: 5,
             atmFees: 4,
-            checkingFees: 4,
+            checkingFees: 5,
             savingsFees: 4,
             overdraft: 3,
             overdraftLimit: 4,
@@ -300,12 +300,12 @@ myApp.controller('myController', function ($scope) {
             branchLocDistribution: 3,
             onlineBankings: 5,
             atmFees: 3,
-            checkingFees: 2,
+            checkingFees: 5,
             savingsFees: 4,
             overdraft: 5,
-            overdraftLimit: 4,
+            overdraftLimit: 5,
             creditCards: 3,
-            customerService: 3,
+            customerService: 4,
             acceptAltId: 3,
             wireTransferCost: 3,
             loanOriginationMarketShare: 4,
@@ -400,7 +400,7 @@ myApp.controller('myController', function ($scope) {
             savingsFees: 4,
             overdraft: 3,
             overdraftLimit: 4,
-            creditCards: 3,
+            creditCards: 4,
             customerService: 2,
             acceptAltId: 2,
             wireTransferCost: 3,
@@ -568,7 +568,7 @@ myApp.controller('myController', function ($scope) {
             savingsFees: 5,
             overdraft: 5,
             overdraftLimit: 1,
-            creditCards: 4,
+            creditCards: 5,
             customerService: 0, // The rating is a 0
             acceptAltId: 1,
             wireTransferCost: 1,
@@ -640,7 +640,7 @@ myApp.controller('myController', function ($scope) {
             savingsFees: 4,
             overdraft: 3,
             overdraftLimit: 1,
-            creditCards: 1,
+            creditCards: 2,
             customerService: 0, // Rating is 0
             acceptAltId: 2,
             wireTransferCost: 3,
@@ -905,7 +905,7 @@ myApp.controller('myController', function ($scope) {
             overdraft: 4,
             overdraftLimit: 4,
             creditCards: 0, // Rating is 0
-            customerService: 0, // Rating is 0
+            customerService: 3, // Rating is 0
             acceptAltId: 1,
             wireTransferCost: 1,
             loanOriginationMarketShare: 1,
@@ -947,7 +947,7 @@ myApp.controller('myController', function ($scope) {
         for (var weight in $scope.weights) {
             if ($scope.weights[weight] === "" || isNaN($scope.weights[weight]) || $scope.weights[weight] < 0) {
                 $scope.weights[weight] = 0;
-				console.log("Triggered For Reset")
+				console.log("Triggered For Reset");
             }
         }
     };
@@ -957,14 +957,14 @@ myApp.controller('myController', function ($scope) {
         for (var weight in $scope.tWeights) {
             if ($scope.tWeights[weight] === "" || isNaN($scope.tWeights[weight]) || $scope.tWeights[weight] < 0) {
                 $scope.tWeights[weight] = 0;
-				console.log("Triggered For Reset 2")
+				console.log("Triggered For Reset 2");
             }
         }
     };
 
     $scope.overlayShow = function() {
         
-    }
+    };
     
 	
 	// This function is used for the weight/score calculator on the custom BANK area. Please don't change this too much or you run the risk of bricking the whole system.
@@ -1054,7 +1054,7 @@ myApp.controller('myController', function ($scope) {
         
         $scope.createOverlay = function() {
             $scope.className = "noscroll";
-            if ($scope.className = "noscroll") {
+            if ($scope.className == "noscroll") {
                 $scope.className = "scroll";
             } 
             else {
@@ -1121,7 +1121,7 @@ myApp.controller('myController', function ($scope) {
         
         $scope.createOverlay = function() {
             $scope.className = "noscroll";
-            if ($scope.className = "noscroll") {
+            if ($scope.className == "noscroll") {
                 $scope.className = "scroll";
             } 
             else {
@@ -1282,7 +1282,7 @@ myApp.controller('myController', function ($scope) {
 				$scope[$scope.current].push($scope.score);                                             // ??? Push the current score to the overall score ???
 				
             }
-            console.log($scope.current + ": " + $scope[$scope.current]);
+            console.log($scope.current + " default: " + $scope[$scope.current]);
         }
 
         $scope.oneScore = function (bank) {
