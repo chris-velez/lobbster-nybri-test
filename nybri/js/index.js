@@ -103,9 +103,7 @@ myApp.controller('myController', function ($scope) {
 			creditCardOffering: 6.25,
 			overdraftFees: 6.25,
 			creditCardPaymentFees: 3.75,
-			cryptoPurchaseOptions: 2.5,
-			cashAdvance: 0                                // This was marked BLANK in the spread sheet, so keep an eye on this one and be sure to ask the client for clarification...
-			
+			cryptoPurchaseOptions: 2.5
 	}},
 	
 	{
@@ -125,9 +123,7 @@ myApp.controller('myController', function ($scope) {
 			creditCardOffering: 6.25,
 			overdraftFees: 2.5,
 			creditCardPaymentFees: 2.5,
-			cryptoPurchaseOptions: 3.75,
-			cashAdvance: 0
-		
+			cryptoPurchaseOptions: 3.75
 	}},
 	
 	{
@@ -147,9 +143,7 @@ myApp.controller('myController', function ($scope) {
 			creditCardOffering: 2.5,
 			overdraftFees: 2.5,
 			creditCardPaymentFees: 3.75,
-			cryptoPurchaseOptions: 6.25,
-			cashAdvance: 0
-		
+			cryptoPurchaseOptions: 6.25
 	}},
 	
 	{
@@ -169,9 +163,7 @@ myApp.controller('myController', function ($scope) {
 			creditCardOffering: 2.5,
 			overdraftFees: 0,
 			creditCardPaymentFees: 2.5,
-			cryptoPurchaseOptions: 2,
-			cashAdvance: 2.5
-		
+			cryptoPurchaseOptions: 2
 	}},
 	
 	{
@@ -191,9 +183,7 @@ myApp.controller('myController', function ($scope) {
 			creditCardOffering: 0,
 			overdraftFees: 0,
 			creditCardPaymentFees: 2.5,
-			cryptoPurchaseOptions: 3,
-			cashAdvance: 0
-		
+			cryptoPurchaseOptions: 3
 	}},
 	
 	{
@@ -213,31 +203,27 @@ myApp.controller('myController', function ($scope) {
 			creditCardOffering: 0,
 			overdraftFees: 1.25,
 			creditCardPaymentFees: 0,
-			cryptoPurchaseOptions: 1.25,
-			cashAdvance: 0
-		
+			cryptoPurchaseOptions: 1.25
 	}},
 	
 	{
 		bankName: 'moneyLion',
 		bankRatings: {
-			peerToPeerBankin: 1,
+			peerToPeerBankin: 1.25,
 			encryptTrans: 6.25,
 			linkExternalAccount: 3.75,
-			linkExternalCreditCard: 5,
+			linkExternalCreditCard: 3.75,
 			fraudProtection: 0,
 			oneTouchLogin: 0,
 			paycheckAdvance: 6.25,
 			contactlessPayment: 0,
 			twoFactorAuth: 0,
 			transactionFees: 3.75,
-			creditBuilding: 5,
-			creditCardOffering: 5,
+			creditBuilding: 3.75,
+			creditCardOffering: 3.75,
 			overdraftFees: 0,
 			creditCardPaymentFees: 0,
-			cryptoPurchaseOptions: 1.25,
-			cashAdvance: 3.5
-		
+			cryptoPurchaseOptions: 1.25
 	}},
 	
 	{
@@ -257,9 +243,7 @@ myApp.controller('myController', function ($scope) {
 			creditCardOffering: 0,
 			overdraftFees: 0,
 			creditCardPaymentFees: 0,
-			cryptoPurchaseOptions: 0.5,
-			cashAdvance: 0
-		
+			cryptoPurchaseOptions: 0		
 	}}];
 	
 	// ==============================================================
