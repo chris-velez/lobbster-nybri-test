@@ -1,34 +1,25 @@
-
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>Ratings for New York Bank Ratings Index</title>
-        <meta
-            name="description"
-            content="Ratings for the New York Bank Ratings Index" />
+        <meta name="description" content="Ratings for the New York Bank Ratings Index" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-            rel="stylesheet"
-            href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
-        <link rel="stylesheet" href="css/styleMIN.css" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+        <link rel="stylesheet" href="css/style.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
         <link rel="icon" type="image/ico" href="logo/favicon.ico" />
     </head>
 
     <body ng-app="myApp" ng-controller="myController">
-        <span class="skip-to-main"
-            ><a href="#main">Skip to Main Content</a></span
-        >
+        <span class="skip-to-main"><a href="#main">Skip to Main Content</a></span>
         <div class="ratings-overlay" ng-cloak ng-show="showme">
             <div class="overlay-content">
                 <h2>
-                    <u>Your Results</u
-                    ><span class="close" ng-click="showme=false"
-                        ><span class="cr-close">close results</span
-                        ><span class="x-close">X</span></span
-                    >
+                    <u>Your Results</u>
+                    <span class="close" ng-click="showme=false">
+                    <span class="cr-close">close results</span><span class="x-close">X</span></span>
                 </h2>
                 <table class="ratings-table">
                     <tr>
@@ -45,11 +36,7 @@
         </div>
         <div id="main" class="container">
             <div class="header row">
-                <a href="index.html"
-                    ><img
-                        src="logo/logo_white.png"
-                        alt="York Bank Ratings Index logo"
-                /></a>
+                <a href="index.html"><img src="logo/logo_white.png" alt="York Bank Ratings Index logo"/></a>
                 <nav>
                     <a href="index.html">Home</a>
                     <a href="about.html">About</a>
