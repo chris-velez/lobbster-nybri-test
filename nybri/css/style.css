@@ -35,6 +35,9 @@ body {
     background-color: #0A1A6D;
     color: white;
 }
+.footer a {
+    color: white;
+}
 .index,.about,.bank-rating,.scoring{
     background-color: white;
     color:#0A1A6D;
@@ -211,7 +214,6 @@ nav a:hover {
 
 .footer p{
     color: white;
-    width: 70%;
 }
 @media(max-width: 725px) {
     .footer {
@@ -387,9 +389,6 @@ nav a:hover {
     .find-bank a{
         margin-left: 38%;
     }
-    .footer p{
-        width: 80%;
-    }
 }
 @media(max-width: 800px) {
     .footer{
@@ -480,8 +479,8 @@ nav a:hover {
     }
 }
 @media(max-width: 600px){
-    .DISCLAIMER p{
-        padding: 15px;
+    .DISCLAIMER p, .footer p{
+        padding: 1em;
     }
 
     .find-bank a {
@@ -714,11 +713,8 @@ nav a:hover {
     display: inline-block;
     margin: 0 0 0 4em;
 }
-.scoring p, a, h1, h2 {
+.scoring p, a, h1{
     color: #0A1A6D;
-}
-.scoring h2 {
-    text-align: center;
 }
 @media(max-width: 1400px){
     .scoring p{
@@ -836,8 +832,9 @@ nav a:hover {
     max-width: 100%;
     margin: 0 auto;
 }
-.bank-rating h2 {
-    text-align: center;
+h2 {
+    max-width: 600px;
+    margin: 1em auto;
 }
 .bank-rating label {
     display: inline-block;
